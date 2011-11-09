@@ -1,7 +1,72 @@
 #!/usr/bin/env node
 
+// Load required scripts
+var path = require('path'),
+	fs = require('fs');
+
+/**
+ * Displays the current status
+ * 
+ * @param {String} message Status to display
+ */
+function showStatus(message) {
+	process.stdout.write(message);
+}
+
+/**
+ * Shows the result of a status
+ * 
+ * @param {Boolean} success Whether the check succeeded or not
+ * @param {String} message An optional message to display after the result
+ */
+function showResult(success, message) {
+	console.log(success ? 'success!' : 'error!');
+	
+	if(message) {
+		console.log('\n\t' + message);
+	}
+}
+
 // Set the base require path to the lib directory
 require.paths.unshift(path.join(__dirname, '..', 'lib'));
 
-// Load the Sentinel class
-var Sentinel = require('Sentinel').Sentinel;
+// Initialise variables
+var Sentinel = require('Sentinel').Sentinel,
+	args = process.argv.splice(2),
+	rawConfig = null,
+	config = null,
+	file = null;
+
+// Check for a path to a config file
+// If there was no path, show the help
+if(args[0]) {
+	file = args[0];
+
+	// Get the files stats
+	showStatus('Checking for config file... ');
+	fs.stat(file, function(err, stats) {
+		// Make sure the file is okay
+		if(err === null && stats.isFile()) {
+			// It is okay. Now load the file
+			showResult(true);
+			showStatus('Reading config file... ');
+			fs.readFile(file, function(err, data) {
+				if(err === null) {
+					// File loaded!
+					showResult(true);
+					rawConfig = data;
+				}
+				else {
+					showResult(false, 'The config file could not be read.');
+				}
+			});
+		}
+		else {
+			// Something went wrong with the file
+			showResult(false, 'The config file does not seem to exist.');
+		}
+	});
+}
+else {
+	console.log('Help.');
+}
