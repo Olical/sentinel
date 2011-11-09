@@ -10,7 +10,7 @@ var path = require('path'),
  * @param {String} message Status to display
  */
 function showStatus(message) {
-	process.stdout.write(message);
+	process.stdout.write(message + ' ');
 }
 
 /**
@@ -23,7 +23,7 @@ function showResult(success, message) {
 	console.log(success ? 'success!' : 'error!');
 	
 	if(message) {
-		console.log('\n\t' + message);
+		console.log('\n\t' + message + '\n');
 	}
 }
 
@@ -33,7 +33,6 @@ require.paths.unshift(path.join(__dirname, '..', 'lib'));
 // Initialise variables
 var Sentinel = require('Sentinel').Sentinel,
 	args = process.argv.splice(2),
-	rawConfig = null,
 	config = null,
 	file = null;
 
@@ -43,18 +42,27 @@ if(args[0]) {
 	file = args[0];
 
 	// Get the files stats
-	showStatus('Checking for config file... ');
+	showStatus('Checking for config file...');
 	fs.stat(file, function(err, stats) {
 		// Make sure the file is okay
 		if(err === null && stats.isFile()) {
 			// It is okay. Now load the file
 			showResult(true);
-			showStatus('Reading config file... ');
+			showStatus('Reading config file...');
 			fs.readFile(file, function(err, data) {
 				if(err === null) {
 					// File loaded!
 					showResult(true);
-					rawConfig = data;
+
+					// Now attempt to parse the config
+					showStatus('Parsing config file...');
+					try {
+						config = JSON.parse(data);
+						showResult(true);
+					}
+					catch(e) {
+						showResult(false, 'The config file is not valid JSON.');
+					}
 				}
 				else {
 					showResult(false, 'The config file could not be read.');
