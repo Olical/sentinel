@@ -1,6 +1,6 @@
 # Sentinel
 
-This program, when configured correctly, will watch your source files and run them through other programs when they are modified. It is intended for LESS and JavaScript files although can be set up to run anything you want.
+This program, when configured correctly, will watch your source files and run them through other programs when they are modified. It is intended for [LESS](http://lesscss.org/) and JavaScript files although can be set up to run anything you want. Sentinel is built to run on [node.js](http://nodejs.org/).
 
 ## Licence
 
