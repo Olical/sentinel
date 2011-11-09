@@ -1,0 +1,7 @@
+#!/usr/bin/env node
+
+// Set the base require path to the lib directory
+require.paths.unshift(path.join(__dirname, '..', 'lib'));
+
+// Load the Sentinel class
+var Sentinel = require('Sentinel').Sentinel;
