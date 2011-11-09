@@ -4,7 +4,7 @@ This program, when configured correctly, will watch your source files and run th
 
 ## Licence
 
-Sentinel - A program that watches source files for changes and processes them accordingly.
+Sentinel - Watch source files for changes and processes them accordingly
 
 Copyright (C) 2011 Oliver Caldwell
 
