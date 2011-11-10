@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 
 // Load required scripts
-var path = require('path'),
-	fs = require('fs');
+var path = require('path');
 
 /**
  * Displays the current status
@@ -32,49 +31,4 @@ require.paths.unshift(path.join(__dirname, '..', 'lib'));
 
 // Initialise variables
 var Sentinel = require('sentinel').Sentinel,
-	args = process.argv.splice(2),
-	config = null,
-	file = null;
-
-// Check for a path to a config file
-// If there was no path, show the help
-if(args[0]) {
-	file = args[0];
-
-	// Get the files stats
-	showStatus('Checking for config file...');
-	fs.stat(file, function(err, stats) {
-		// Make sure the file is okay
-		if(err === null && stats.isFile()) {
-			// It is okay. Now load the file
-			showResult(true);
-			showStatus('Reading config file...');
-			fs.readFile(file, function(err, data) {
-				if(err === null) {
-					// File loaded!
-					showResult(true);
-
-					// Now attempt to parse the config
-					showStatus('Parsing config file...');
-					try {
-						config = JSON.parse(data);
-						showResult(true);
-					}
-					catch(e) {
-						showResult(false, 'The config file is not valid JSON.');
-					}
-				}
-				else {
-					showResult(false, 'The config file could not be read.');
-				}
-			});
-		}
-		else {
-			// Something went wrong with the file
-			showResult(false, 'The config file does not seem to exist.');
-		}
-	});
-}
-else {
-	console.log('Help.');
-}
+	args = process.argv.splice(2);
