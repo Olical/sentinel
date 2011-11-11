@@ -12,15 +12,15 @@ var Sentinel = require('sentinel').Sentinel,
 	s = new Sentinel();
 
 s.mergeConfig({
-		files: [
-			{
-				path: './lib/sentinel/index.js',
-				processor: 'display'
-			}
-		],
-		processors: {
-			display: 'cat {{path}}'
+	files: [
+		{
+			path: './lib/sentinel/index.js',
+			processor: 'display'
 		}
+	],
+	processors: {
+		display: 'cat {{path}}'
+	}
 });
 
 s.start();
