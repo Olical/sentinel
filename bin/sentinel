@@ -3,29 +3,6 @@
 // Load required scripts
 var path = require('path');
 
-/**
- * Displays the current status
- * 
- * @param {String} message Status to display
- */
-function showStatus(message) {
-	process.stdout.write(message + ' ');
-}
-
-/**
- * Shows the result of a status
- * 
- * @param {Boolean} success Whether the check succeeded or not
- * @param {String} message An optional message to display after the result
- */
-function showResult(success, message) {
-	console.log(success ? 'success!' : 'error!');
-	
-	if(message) {
-		console.log('\n\t' + message + '\n');
-	}
-}
-
 // Set the package root
 require.paths.unshift(path.join(__dirname, '..', 'lib'));
 
