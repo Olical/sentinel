@@ -32,3 +32,15 @@ require.paths.unshift(path.join(__dirname, '..', 'lib'));
 // Initialise variables
 var Sentinel = require('sentinel').Sentinel,
 	args = process.argv.splice(2);
+
+var s = new Sentinel({
+	files: [
+		{
+			path: './lib/sentinel/index.js',
+			processor: 'display'
+		}
+	],
+	processors: {
+		display: 'cat {{path}}'
+	}
+}).start();
