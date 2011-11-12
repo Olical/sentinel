@@ -42,6 +42,16 @@ if(flags.verbose) {
 	s.on('fileChanged', function(file, curr, prev) {
 		console.log('File changed: ' + file.path + ' (' + prev.size + 'b -> ' + curr.size + 'b = ' + (curr.size - prev.size) + 'b)');
 	});
+	
+	// Display information every time a processor is executed
+	s.on('processorExecuted', function(proc, source, command) {
+		console.log('Processor execute: ' + proc + '(' + source + ' -> ' + command + ')');
+	});
+	
+	// Log the loading of configuration
+	s.on('configLoaded', function(file, parsedConfig, data) {
+		console.log('Config loaded: ' + file);
+	});
 }
 
 if(typeof flags.process === 'string') {
