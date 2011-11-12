@@ -16,11 +16,6 @@ var Sentinel = require('sentinel').Sentinel,
 		verbose: false,
 		process: false,
 		help: false
-	},
-	info = {
-		verbose: 'Display verbose output. You will be able to see when files change and the file sizes involved.',
-		process: 'Processes a file instantly. Bypasses the waiting for file changes.',
-		help: 'Displays help and argument information.'
 	};
 
 // Loop over the arguments acting accordingly
