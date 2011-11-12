@@ -10,7 +10,7 @@
 		"build"
 	],
 	"author": "Oliver Caldwell <olliec87@gmail.com>",
-	"main": "./lib/Sentinel/index",
+	"main": "./node_modules/sentinel/index",
 	"contributors": [],
 	"version": "1.0.0",
 	"bin": {
