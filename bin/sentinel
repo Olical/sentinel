@@ -24,3 +24,7 @@ s.mergeConfig({
 });
 
 s.start();
+
+s.on('fileChanged', function(file, curr, prev) {
+	console.log('File changed: ' + file.path + ' (' + prev.size + 'b -> ' + curr.size + 'b = ' + (curr.size - prev.size) + 'b)');
+});
