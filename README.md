@@ -4,6 +4,14 @@ This program, when configured correctly, will watch your source files and run th
 
 At the moment the only way to stop it is with `Ctrl + C`. I am planning on implementing some kind of interface so that you can prompt things like reloading the config, or forcing the processing of a file. I would also like to add regular expression file matching.
 
+## Installation
+
+You can either download this repository or use [npm](http://npmjs.org/). I strongly reccomend npm. To install it simply type:
+
+    npm install Sentinel
+
+That's it. Done.
+
 ## Configuration
 
 Like `make`, sentinel looks in your current directory for a config file. This file should be named `sentinel.json`. It will also look for a global config in your home directory called `.sentinel.json`. The local one in your current folder will overwrite things set in the global one via inheritence.
@@ -11,15 +19,15 @@ Like `make`, sentinel looks in your current directory for a config file. This fi
 As you can tell from the name, the configuration is written in JSON, lets have a look at a very basic one that runs a JavaScript file through JSHint.
 
     {
-    	"files": [
-    		{
-    			"path": "assets/javascript/main.js",
-    			"processor": "jshint"
-    		}
-    	],
-    	"processors": {
-    		"jshint": "jshint {{path}}"
-    	}
+        "files": [
+            {
+                "path": "assets/javascript/main.js",
+                "processor": "jshint"
+            }
+        ],
+        "processors": {
+            "jshint": "jshint {{path}}"
+        }
     }
 
 Lets walk through this. We have a fairly simple JSON object containin two top level properties, `files` and `processors`. Files is an array of objects that contain data about your source files. Each of the files values are actually arguments, this is because they replace their associated value in the processor string. So if you write `{{path}}` in your processor it will be replaced with the path value. The processor value can either be a string or an array of strings, these let Sentinel know what processor you wish to run the file through.
@@ -36,6 +44,22 @@ There are a few command line arguments you can use too.
 
  * --verbose / -v: Show verbose output, so information will be logged to the console when files change for example.
  * --process file / -p file: Does not watch any files but instantly processes the file you specify, just like make. The file name must match one in the config exactly.
+
+## Example configurations
+
+Simply drop these into the `processors` section of your global config. You can find it in `~/.sentinel.json`. Here is a template you can use.
+
+    {
+        "processors": {
+            
+        }
+    }
+
+Remember to add commas after each processor! Plase make sure you are using valid JSON. If something is not working, run with the `-v` parameter to see information regarding errors. The following lines use external packages installed via [npm](http://npmjs.org/).
+
+ * "less": "lessc {{path}} -x -o {{output}}"
+ * "jshint": "jshint {{path}}"
+ * "uglifyjs": "uglifyjs -o {{output}} {{path}}"
 
 ## Licence
 
