@@ -8,11 +8,11 @@
 		"automation"
 	],
 	"author": "Oliver Caldwell <olliec87@gmail.com>",
-	"main": "./node_modules/sentinel/index",
+	"main": "./sentinel",
 	"contributors": [],
 	"version": "1.0.0",
 	"bin": {
-		"sentinel": "./bin/sentinel"
+		"sentinel": "./sentinel-binary"
 	},
 	"engines": {
 		"node": ">=0.4.0"
