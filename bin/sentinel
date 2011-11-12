@@ -56,28 +56,28 @@ s.loadConfig(process.env.HOME + '/.sentinel.json', function(err) {
 	if(err && flags.verbose) {
 		console.log(err.message);
 	}
-}, true);
-
-// Attempt to load this directorys config
-s.loadConfig('./sentinel.json', function(err) {
-	if(err && flags.verbose) {
-		console.log(err.message);
-	}
-});
-
-if(typeof flags.process === 'string') {
-	// Manually execute a processor
-	for(i = 0; i < s.config.files.length; i += 1) {
-		// Check if the file matchs
-		if(s.config.files[i].path === flags.process) {
-			// We have a match, process it
-			s.executeProcessor(s.config.files[i].processor, s.config.files[i]);
+	
+	// Attempt to load this directorys config
+	s.loadConfig('./sentinel.json', function(err) {
+		if(err && flags.verbose) {
+			console.log(err.message);
 		}
-	}
-}
-else {
-	// We must listen rather than going manually
-	// Start the sentinel
-	// It will now begin watching files
-	s.start();
-}
+		
+		if(typeof flags.process === 'string') {
+			// Manually execute a processor
+			for(i = 0; i < s.config.files.length; i += 1) {
+				// Check if the file matchs
+				if(s.config.files[i].path === flags.process) {
+					// We have a match, process it
+					s.executeProcessor(s.config.files[i].processor, s.config.files[i]);
+				}
+			}
+		}
+		else {
+			// We must listen rather than going manually
+			// Start the sentinel
+			// It will now begin watching files
+			s.start();
+		}
+	});
+}, true);
