@@ -6,7 +6,7 @@ At the moment the only way to stop it is with `Ctrl + C`. I am planning on imple
 
 ## Installation
 
-You can either download this repository or use [npm](http://npmjs.org/). I strongly reccomend npm. To install it simply type:
+You can either download this repository or use [npm](http://npmjs.org/). I strongly recommend npm. To install it simply type:
 
     npm install Sentinel
 
@@ -14,7 +14,7 @@ That's it. Done.
 
 ## Configuration
 
-Like `make`, sentinel looks in your current directory for a config file. This file should be named `sentinel.json`. It will also look for a global config in your home directory called `.sentinel.json`. The local one in your current folder will overwrite things set in the global one via inheritence.
+Like `make`, sentinel looks in your current directory for a config file. This file should be named `sentinel.json`. It will also look for a global config in your home directory called `.sentinel.json`. The local one in your current folder will overwrite things set in the global one via inheritance.
 
 As you can tell from the name, the configuration is written in JSON, lets have a look at a very basic one that runs a JavaScript file through JSHint.
 
@@ -34,7 +34,7 @@ Lets walk through this. We have a fairly simple JSON object containing two top l
 
 The processors object is a list of key value pairs containing the name of the processor and a small bash script to run your script to. You can utilise any passed values in a file object by simply wrapping the name of the value in double curly braces (`{{value name}}`). So you can use the path value as an input and output as the destination.
 
-If you wanted to, you could copy this (less the files array) into `~/.sentinel.json` and have the JSHint processor avaliable in every project.
+If you wanted to, you could copy this (less the files array) into `~/.sentinel.json` and have the JSHint processor available in every project.
 
 ## Running Sentinel
 
@@ -55,7 +55,7 @@ Simply drop these into the `processors` section of your global config. You can f
         }
     }
 
-Remember to add commas after each processor! Plase make sure you are using valid JSON. If something is not working, run with the `-v` parameter to see information regarding errors. The following lines use external packages installed via [npm](http://npmjs.org/).
+Remember to add commas after each processor! Please make sure you are using valid JSON. If something is not working, run with the `-v` parameter to see information regarding errors. The following lines use external packages installed via [npm](http://npmjs.org/).
 
  * "less": "lessc {{path}} -x -o {{output}}"
  * "jshint": "jshint {{path}}"
