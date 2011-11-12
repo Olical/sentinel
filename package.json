@@ -1,25 +1,25 @@
 {
-  "name": "Sentinel",
-  "description": "Watch source files for changes and processes them accordingly",
-  "keywords": [
-    "build",
-    "automation"
-  ],
-  "author": "Oliver Caldwell <olliec87@gmail.com> (http://olivercaldwell.co.uk/)",
-  "main": "./sentinel.js",
-  "contributors": [],
-  "version": "1.0.0",
-  "bin": {
-    "sentinel": "./sentinel-binary.js"
-  },
-  "engines": {
-    "node": ">=0.4.0"
-  },
-  "dependencies": {},
-  "devDependencies": {},
-  "homepage": "https://github.com/Wolfy87/Sentinel",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/Wolfy87/Sentinel.git"
-  }
+	"name": "Sentinel",
+	"description": "Watch source files for changes and processes them accordingly",
+	"keywords": [
+		"build",
+		"automation"
+	],
+	"author": "Oliver Caldwell <olliec87@gmail.com> (http://olivercaldwell.co.uk/)",
+	"main": "./sentinel.js",
+	"contributors": [],
+	"version": "1.0.0",
+	"bin": {
+		"sentinel": "./sentinel-binary.js"
+	},
+	"engines": {
+		"node": ">=0.4.0"
+	},
+	"dependencies": {},
+	"devDependencies": {},
+	"homepage": "https://github.com/Wolfy87/Sentinel",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/Wolfy87/Sentinel.git"
+	}
 }
