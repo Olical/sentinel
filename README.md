@@ -30,7 +30,7 @@ As you can tell from the name, the configuration is written in JSON, lets have a
         }
     }
 
-Lets walk through this. We have a fairly simple JSON object containin two top level properties, `files` and `processors`. Files is an array of objects that contain data about your source files. Each of the files values are actually arguments, this is because they replace their associated value in the processor string. So if you write `{{path}}` in your processor it will be replaced with the path value. The processor value can either be a string or an array of strings, these let Sentinel know what processor you wish to run the file through.
+Lets walk through this. We have a fairly simple JSON object containing two top level properties, `files` and `processors`. Files is an array of objects that contain data about your source files. Each of the files values are actually arguments, this is because they replace their associated value in the processor string. So if you write `{{path}}` in your processor it will be replaced with the path value. The processor value can either be a string or an array of strings, these let Sentinel know what processor you wish to run the file through.
 
 The processors object is a list of key value pairs containing the name of the processor and a small bash script to run your script to. You can utilise any passed values in a file object by simply wrapping the name of the value in double curly braces (`{{value name}}`). So you can use the path value as an input and output as the destination.
 
