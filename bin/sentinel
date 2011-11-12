@@ -55,16 +55,16 @@ if(flags.verbose) {
 }
 
 // Attempt to load the global config
-s.loadConfig('~/.sentinel.json', function(err) {
+s.loadConfig(process.env.HOME + '/.sentinel.json', function(err) {
 	if(err && flags.verbose) {
-		console.log('No global config file found. (~/.sentinel.json)');
+		console.log(err.message);
 	}
-});
+}, true);
 
 // Attempt to load this directorys config
 s.loadConfig('./sentinel.json', function(err) {
 	if(err && flags.verbose) {
-		console.log('No config file found in this directory. (./sentinel.json)');
+		console.log(err.message);
 	}
 });
 
