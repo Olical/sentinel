@@ -4,10 +4,8 @@
 	"description": "Watch source files for changes and processes them accordingly",
 	"url": "https://github.com/Wolfy87/Sentinel",
 	"keywords": [
-		"less",
-		"javascript",
-		"css",
-		"build"
+		"build",
+		"automation"
 	],
 	"author": "Oliver Caldwell <olliec87@gmail.com>",
 	"main": "./node_modules/sentinel/index",
