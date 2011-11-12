@@ -1,8 +1,8 @@
 # Sentinel
 
-This program, when configured correctly, will watch your source files and run them through other programs when they are modified. It is intended for [LESS](http://lesscss.org/) and JavaScript files although can be set up to run anything you want. Sentinel is built to run on [node.js](http://nodejs.org/).
+This program, when configured correctly, will watch your source files and run them through other programs when they are modified. It was intended for [LESS](http://lesscss.org/) and JavaScript files although can be set up to run anything you want. Sentinel is built to run on [node.js](http://nodejs.org/).
 
-At the moment the only way to stop it is with `Ctrl + C`. I am planning on implementing some kind of interface so that you can prompt things like reloading the config, or forcing the processing of a file.
+At the moment the only way to stop it is with `Ctrl + C`. I am planning on implementing some kind of interface so that you can prompt things like reloading the config, or forcing the processing of a file. I would also like to add regular expression file matching.
 
 ## Licence
 
