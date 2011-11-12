@@ -8,7 +8,7 @@ At the moment the only way to stop it is with `Ctrl + C`. I am planning on imple
 
 You can either download this repository or use [npm](http://npmjs.org/). I strongly recommend npm. To install it simply type:
 
-    npm install Sentinel
+    sudo npm install Sentinel -g
 
 That's it. Done.
 
