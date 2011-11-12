@@ -9,22 +9,34 @@ require.paths.unshift(path.join(__dirname, '..', 'lib'));
 // Initialise variables
 var Sentinel = require('sentinel').Sentinel,
 	args = process.argv.splice(2),
-	s = new Sentinel();
+	s = new Sentinel(),
+	i = null,
+	f = null,
+	flags = {
+		verbose: false
+	};
 
-s.mergeConfig({
-	files: [
-		{
-			path: './lib/sentinel/index.js',
-			processor: 'display'
+// Loop over the arguments acting accordingly
+for(i = 0; i < args.length; i += 1) {
+	// Loop over all preset flags
+	for(f in flags) {
+		if(flags.hasOwnProperty(f)) {
+			// Check if we have a match
+			if(args[i] === '--' + f || args[i] === '-' + f[0]) {
+				flags[f] = true;
+			}
 		}
-	],
-	processors: {
-		display: 'cat {{path}}'
 	}
-});
+}
 
+// Check if we need verbose output
+if(flags.verbose) {
+	// This event will display file information whenever a file changes
+	s.on('fileChanged', function(file, curr, prev) {
+		console.log('File changed: ' + file.path + ' (' + prev.size + 'b -> ' + curr.size + 'b = ' + (curr.size - prev.size) + 'b)');
+	});
+}
+
+// Start the sentinel
+// It will now begin watching files
 s.start();
-
-s.on('fileChanged', function(file, curr, prev) {
-	console.log('File changed: ' + file.path + ' (' + prev.size + 'b -> ' + curr.size + 'b = ' + (curr.size - prev.size) + 'b)');
-});
