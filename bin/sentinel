@@ -54,6 +54,20 @@ if(flags.verbose) {
 	});
 }
 
+// Attempt to load the global config
+s.loadConfig('~/.sentinel.json', function(err) {
+	if(err && flags.verbose) {
+		console.log('No global config file found. (~/.sentinel.json)');
+	}
+});
+
+// Attempt to load this directorys config
+s.loadConfig('./sentinel.json', function(err) {
+	if(err && flags.verbose) {
+		console.log('No config file found in this directory. (./sentinel.json)');
+	}
+});
+
 if(typeof flags.process === 'string') {
 	// Manually execute a processor
 	for(i = 0; i < s.config.files.length; i += 1) {
