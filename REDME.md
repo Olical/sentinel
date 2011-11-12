@@ -28,6 +28,15 @@ The processors object is a list of key value pairs containing the name of the pr
 
 If you wanted to, you could copy this (less the files array) into `~/.sentinel.json` and have the JSHint processor avaliable in every project.
 
+## Running Sentinel
+
+To run sentinel simply navigate your terminal to the directory containing your configuration and run `sentinel`. It will read your global config file first and then the one inside the directory. It will watch your files for changes and run them through their processors when it needs to.
+
+There are a few command line arguments you can use too.
+
+ * --verbose / -v: Show verbose output, so information will be logged to the console when files change for example.
+ * --process file / -p file: Does not watch any files but instantly processes the file you specify, just like make. The file name must match one in the config exactly.
+
 ## Licence
 
 Sentinel - Watch source files for changes and processes them accordingly
