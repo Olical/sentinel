@@ -1,6 +1,6 @@
-# Sentinel
+# sentinel
 
-This program, when configured correctly, will watch your source files and run them through other programs when they are modified. It was intended for [LESS](http://lesscss.org/) and JavaScript files although can be set up to run anything you want. Sentinel is built to run on [node.js](http://nodejs.org/).
+This program, when configured correctly, will watch your source files and run them through other programs when they are modified. It was intended for [LESS](http://lesscss.org/) and JavaScript files although can be set up to run anything you want. sentinel is built to run on [node.js](http://nodejs.org/).
 
 At the moment the only way to stop it is with `Ctrl + C`. I am planning on implementing some kind of interface so that you can prompt things like reloading the config, or forcing the processing of a file. I would also like to add regular expression file matching.
 
@@ -8,7 +8,7 @@ At the moment the only way to stop it is with `Ctrl + C`. I am planning on imple
 
 You can either download this repository or use [npm](http://npmjs.org/). I strongly recommend npm. To install it simply type:
 
-    sudo npm install Sentinel -g
+    sudo npm install sentinel -g
 
 That's it. Done.
 
@@ -30,13 +30,13 @@ As you can tell from the name, the configuration is written in JSON, lets have a
         }
     }
 
-Lets walk through this. We have a fairly simple JSON object containing two top level properties, `files` and `processors`. Files is an array of objects that contain data about your source files. Each of the files values are actually arguments, this is because they replace their associated value in the processor string. So if you write `{{path}}` in your processor it will be replaced with the path value. The processor value can either be a string or an array of strings, these let Sentinel know what processor you wish to run the file through.
+Lets walk through this. We have a fairly simple JSON object containing two top level properties, `files` and `processors`. Files is an array of objects that contain data about your source files. Each of the files values are actually arguments, this is because they replace their associated value in the processor string. So if you write `{{path}}` in your processor it will be replaced with the path value. The processor value can either be a string or an array of strings, these let sentinel know what processor you wish to run the file through.
 
 The processors object is a list of key value pairs containing the name of the processor and a small bash script to run your script to. You can utilise any passed values in a file object by simply wrapping the name of the value in double curly braces (`{{value name}}`). So you can use the path value as an input and output as the destination.
 
 If you wanted to, you could copy this (less the files array) into `~/.sentinel.json` and have the JSHint processor available in every project.
 
-## Running Sentinel
+## Running sentinel
 
 To run sentinel simply navigate your terminal to the directory containing your configuration and run `sentinel`. It will read your global config file first and then the one inside the directory. It will watch your files for changes and run them through their processors when it needs to.
 
@@ -63,7 +63,7 @@ Remember to add commas after each processor! Please make sure you are using vali
 
 ## Licence
 
-Sentinel - Watch source files for changes and processes them accordingly
+sentinel - Watch source files for changes and processes them accordingly
 
 Copyright (C) 2011 Oliver Caldwell
 
