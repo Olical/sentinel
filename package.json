@@ -8,12 +8,9 @@
 	"author": "Oliver Caldwell <olliec87@gmail.com> (http://olivercaldwell.co.uk/)",
 	"main": "./sentinel.js",
 	"contributors": [],
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"bin": {
 		"sentinel": "./sentinel-binary.js"
-	},
-	"engines": {
-		"node": ">=0.4.0"
 	},
 	"dependencies": {},
 	"devDependencies": {},
