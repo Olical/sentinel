@@ -1,5 +1,5 @@
 {
-	"name": "Sentinel",
+	"name": "sentinel",
 	"description": "Watch source files for changes and processes them accordingly",
 	"keywords": [
 		"build",
@@ -8,18 +8,15 @@
 	"author": "Oliver Caldwell <olliec87@gmail.com> (http://olivercaldwell.co.uk/)",
 	"main": "./sentinel.js",
 	"contributors": [],
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"bin": {
 		"sentinel": "./sentinel-binary.js"
 	},
-	"engines": {
-		"node": ">=0.4.0"
-	},
 	"dependencies": {},
 	"devDependencies": {},
-	"homepage": "https://github.com/Wolfy87/Sentinel",
+	"homepage": "https://github.com/Wolfy87/sentinel",
 	"repository": {
 		"type": "git",
-		"url": "git://github.com/Wolfy87/Sentinel.git"
+		"url": "git://github.com/Wolfy87/sentinel.git"
 	}
 }

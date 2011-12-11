@@ -42,7 +42,7 @@ if(flags.verbose) {
 	
 	// Display information every time a processor is executed
 	s.on('processorExecuted', function(proc, source, command) {
-		console.log('Processor executed: ' + proc + '(' + source + ' -> ' + command + ')');
+		console.log('Processor executed: ' + proc + ' (' + source + ' -> ' + command + ')');
 	});
 	
 	// Log the loading of configuration
