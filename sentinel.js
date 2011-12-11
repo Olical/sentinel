@@ -185,7 +185,7 @@
 		function watchFile(file) {
 			fs.watchFile(file.path, function(curr, prev) {
 				// If there have been changes, execute the processors (if any)
-				if(file.processor && curr.size !== prev.size) {
+				if(file.processor && curr.mtime !== prev.mtime) {
 					// Let the world know that the file has changed
 					self.emit('fileChanged', file, curr, prev);
 					
