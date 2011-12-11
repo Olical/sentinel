@@ -12,9 +12,6 @@
 	"bin": {
 		"sentinel": "./sentinel-binary.js"
 	},
-	"engines": {
-		"node": ">=0.4.0"
-	},
 	"dependencies": {},
 	"devDependencies": {},
 	"homepage": "https://github.com/Wolfy87/sentinel",
