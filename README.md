@@ -1,4 +1,4 @@
-# sentinel
+# sentinel (dead - PLEASE DO NOT USE)
 
 This program, when configured correctly, will watch your source files and run them through other programs when they are modified. It was intended for [LESS](http://lesscss.org/) and JavaScript files although can be set up to run anything you want. sentinel is built to run on [node.js](http://nodejs.org/).
 
@@ -6,11 +6,7 @@ At the moment the only way to stop it is with `Ctrl + C`. I am planning on imple
 
 ## Installation
 
-You can either download this repository or use [npm](http://npmjs.org/). I strongly recommend npm. To install it simply type:
-
-    npm install sentinel -g
-
-That's it. Done.
+This is no longer on NPM.
 
 ## Configuration
 
